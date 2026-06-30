@@ -1,0 +1,23 @@
+    Building Microservices in springboot
+In the past, what gets deployed is one entity and it scales as a single entity.
+On the code side, you can have multiple modularity or projects but still have a monolith deployed.
+But with micro services, what gets deployed is very different
+    Todo
+-Creating a few microservices.
+-Having them communicate with each other.
+-Monolith broken to micro services
+-Difference between web service and micro service
+    What is a Technology
+A technology is used to solves a problem.
+Technology we will use - Spring Cloud
+Spring Cloud: This is one of the robust ways to create micro services.
+    Prerequisites
+-Java
+-Spring Boot
+    Movie Catalog API application
+web service and micro service
+
+step 1 - Create the 3 services
+i.e create 3 projects from start.spring.io
+dependencies
+-Spring Web
