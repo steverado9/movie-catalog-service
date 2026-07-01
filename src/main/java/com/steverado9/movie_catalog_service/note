@@ -21,3 +21,20 @@ step 1 - Create the 3 services
 i.e create 3 projects from start.spring.io
 dependencies
 -Spring Web
+    The three projects(services)
+spring-catalog-service
+movie-info-service
+rating-data-service
+
+@RequestMapping("/{userId}")
+The data inside the {} tells springboot that it accepts a variable and it works together with @Pathvariable.
+
+configure the port for each of the microservices/projects in the application.properties
+-Good practice: always leave port 8080 free
+
+    We have the 3 services/projects set up
+The first connection which is calling the movie info api from the catalog service.
+    How to make a REST call from your code
+RestTemplate: We use it to make rest api calls.
+web client: This is th harder way to make api calls.
+
