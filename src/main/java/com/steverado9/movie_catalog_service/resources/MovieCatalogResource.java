@@ -1,6 +1,7 @@
 package com.steverado9.movie_catalog_service.resources;
 
 import com.steverado9.movie_catalog_service.models.CatalogItem;
+import com.steverado9.movie_catalog_service.models.Movie;
 import com.steverado9.movie_catalog_service.models.Rating;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,8 +29,11 @@ public class MovieCatalogResource {
                 new Rating("5678", 3)
         );
 
-        return ratings.stream().map(rating -> new CatalogItem("Transformers", "Test", 4))
-                .toList();
+        return ratings.stream().map(rating -> {
+                    Movie movie = restTemplate.getForObject("http://localhost:8083/ratingsData/far" + rating.getMovieId(), Movie.class);
+                    return new CatalogItem(movie.getName(), "Test", rating.getRating());
+                })
+                .collect(Collectors.toList()) ;
         //For each movie ID, call movie info service and get details
 
         //Put them all together
