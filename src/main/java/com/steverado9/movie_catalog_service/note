@@ -8,15 +8,16 @@ But with micro services, what gets deployed is very different
 -Monolith broken to micro services
 -Difference between web service and micro service
     What is a Technology
-A technology is used to solves a problem.
+A technology is used to solve a problem.
 Technology we will use - Spring Cloud
 Spring Cloud: This is one of the robust ways to create micro services.
     Prerequisites
 -Java
 -Spring Boot
     Movie Catalog API application
-web service and micro service
+What is a web service and micro service
 
+    Steps
 step 1 - Create the 3 services
 i.e create 3 projects from start.spring.io
 dependencies
@@ -36,5 +37,24 @@ configure the port for each of the microservices/projects in the application.pro
 The first connection which is calling the movie info api from the catalog service.
     How to make a REST call from your code
 RestTemplate: We use it to make rest api calls.
-web client: This is th harder way to make api calls.
+web client: This is the harder way to make api calls.
+
+RestTemplate has a bunch of methods and one of the methods is "getForObject".
+getForObject takes two arguments, the url you want to call and the class of the type of object you want to return.
+
+    How to create a single instance of any object in spring boot and have it shared across multiple classes
+-You create a bean
+bean: in spring, beans are by default singletons
+So anytime you need it, spring just provides it for you.
+we do this by using the @bean annotation
+create a bean of RestTemplate where you start the spring application
+
+    Web Client
+This is an alternative for RestTemplate.
+This is used in the reactive way of building spring boot application.
+i.e asynchronous spring boot programming.
+to use webclient, we will add Spring reactive web dependency.
+
+
+
 
