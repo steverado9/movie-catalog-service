@@ -41,6 +41,7 @@ web client: This is the harder way to make api calls.
 
 RestTemplate has a bunch of methods and one of the methods is "getForObject".
 getForObject takes two arguments, the url you want to call and the class of the type of object you want to return.
+RestTemplate is synchronous.
 
     How to create a single instance of any object in spring boot and have it shared across multiple classes
 -You create a bean
@@ -54,6 +55,27 @@ This is an alternative for RestTemplate.
 This is used in the reactive way of building spring boot application.
 i.e asynchronous spring boot programming.
 to use webclient, we will add Spring reactive web dependency.
+
+    Why you should avoid returning lists in APIs
+Always return an object.
+Serialization converts an object into a byte stream for storage or transmission.
+Deserialization converts the byte stream back into the original Java object.
+
+      Understanding Service Discovery
+When you build micro services, they need to talk to each-other i.e they discover each-other.
+Discovery server: This stands in the middle between the client and the service you want to discover
+i.e it helps the client communicate with the service it needs
+        Eureka
+This is the technology that spring uses for service discovery.
+Eureka is one of those projects made open source by netflix.
+
+    Steps tp making Service Discovery(Eureka server) work
+-Start up a Eureka server
+-Having microservices register(publish) using Eureka client.
+-Have microservices locate(consume) using Eureka client.
+    You create an Eureka server by creating a spring boot project and adding the Eureka server dependency
+
+
 
 
 
