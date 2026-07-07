@@ -71,12 +71,25 @@ Eureka is one of those projects made open source by netflix.
 
     Steps tp making Service Discovery(Eureka server) work
 -Start up a Eureka server
+You create an Eureka server by creating a spring boot project and adding the Eureka server dependency.
+open the project. and add this annotation @EnableEurekaServer
+Every eureka server is also an eureka client
+so we add some properties in the application.yml to tell it to stop acting like a client
+go to localhost:8761
+
 -Having microservices register(publish) using Eureka client.
+Add Eureka client dependency to have the 3 microservices register with Eureka
+and the spring cloud version
+run the application
+go to "go to localhost:8761" and refresh
+
 -Have microservices locate(consume) using Eureka client.
-    You create an Eureka server by creating a spring boot project and adding the Eureka server dependency
+We use @LoadBalanced annotation to consume eureka client
+@LoadBalanced: Does service discovery i.e we give it a hint and it discovers the service.
+in movie catalog resource, restTemplate is going to see the url as a service name and tells eureka to call the service.
+it is basically abstraction hidden away in eureka library i.e the service port of the url is hidden away, eureka just uses the name of the service to locate it.
 
-
-
-
+     Doing client side load balancing
+@LoadBalanced: Not only is this annotation doing service discovery it is also doing client side load balancing
 
 
